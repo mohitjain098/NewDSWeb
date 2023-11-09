@@ -12,9 +12,9 @@
 
                     double arrayMean(int arr[], int n) {
                         if (n &lt;= 0) {
-                            return 0.0; // Base case: if the array is empty or all elements are processed
+                            return 0.0; 
                         }
-                        // Recursive case: sum up elements and divide by count
+                        
                         return (arr[n - 1] + (n - 1) * arrayMean(arr, n - 1)) / n;
                     }
                     
