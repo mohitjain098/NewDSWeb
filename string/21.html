@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        #include &lt;stdio.h&gt;
+               
+                    #include &lt;string.h&gt;
+                    
+                    
+                    void swap(char *x, char *y) {
+                        char temp;
+                        temp = *x;
+                        *x = *y;
+                        *y = temp;
+                    }
+                    
+                
+                    void permute(char *str, int left, int right) {
+                        if (left == right) {
+                            printf("%s\n", str); 
+                        } else {
+                            for (int i = left; i &lt;= right; i++) {
+                                swap((str + left), (str + i));
+                                permute(str, left + 1, right);
+                                swap((str + left), (str + i)); 
+                            }
+                        }
+                    }
+                    
+                    int main() {
+                        char inputString[100];
+                    
+                        printf("Enter a string: ");
+                        fgets(inputString, sizeof(inputString), stdin);
+                    
+                        
+                        inputString[strcspn(inputString, "\n")] = 0;
+                    
+                        int length = strlen(inputString);
+                        permute(inputString, 0, length - 1);
+                    
+                        return 0;
+                    }
+                    
+            </pre>
+            <h1>output</h1>
+            <pre>Enter a string: and
+                and
+                adn
+                nad
+                nda
+                dna
+                dan
+                </pre>
+                
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        #include &lt;stdio.h&gt;
+              
+
+                    float strtofloat(char str[]){
+                        int i;
+                        float num = 0.0, decimalPlace = 1.0;
+                        for (i = 0; str[i] != '\0'; i++)
+                        {
+                            decimalPlace *= 10;
+                            if (str[i] >= '0' && str[i] &lt;= '9'){
+                                num = (num*10.0) + (str[i] - 48);
+                                printf("%f\n", num);
+                            }
+                            else if(str[i] == '.'){
+                                decimalPlace = 1;
+                            }
+                        }
+                        while(decimalPlace &lt; 100000)
+                        {
+                            decimalPlace *= 10;
+                            num = (num*10.0) + 0.0;
+                        }
+                        return (num/decimalPlace);
+                    }
+                    
+                    int main(){
+                        char str[30];
+                        printf("Enter String\n");
+                        gets(str);
+                        printf("String in integer is %f", strtofloat(str));
+                        return 0;
+                    }
+            </pre>
+            <h1>output</h1>
+            <pre>Enter String
+                1233
+                \1.000000
+                12.000000
+                123.000000
+                1233.000000
+                String in integer is 0.123300</pre>
+                
+</body>
+</html>
