@@ -11,19 +11,19 @@
             #include &lt;stdio.h&gt;
                 #include &lt;stdlib.h&gt;
                 
-                // Structure to represent a node in the adjacency list
+               
                 typedef struct Node {
                     int data;
                     struct Node* next;
                 } Node;
                 
-                // Structure to represent the graph
+                
                 typedef struct Graph {
                     int numVertices;
                     Node** adjacencyList;
                 } Graph;
                 
-                // Function to create a new graph with 'numVertices' vertices
+                
                 Graph* createGraph(int numVertices) {
                     Graph* graph = (Graph*)malloc(sizeof(Graph));
                     graph-&gt;numVertices = numVertices;
@@ -34,7 +34,7 @@
                     return graph;
                 }
                 
-                // Function to add an edge between two vertices
+                
                 void addEdge(Graph* graph, int source, int destination) {
                     Node* newNode = (Node*)malloc(sizeof(Node));
                     newNode-&gt;data = destination;
@@ -42,7 +42,7 @@
                     graph-&gt;adjacencyList[source] = newNode;
                 }
                 
-                // Function to perform Depth-First Search
+            
                 void dfs(Graph* graph, int vertex, int* visited) {
                     visited[vertex] = 1;
                     printf("Visited vertex: %d\n", vertex);
