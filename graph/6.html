@@ -11,19 +11,19 @@
             #include &lt;stdio.h&gt;
                 #include &lt;stdlib.h&gt;
                 
-                // Structure to represent a node in the adjacency list
+            
                 typedef struct Node {
                     int data;
                     struct Node* next;
                 } Node;
                 
-                // Structure to represent the graph
+                
                 typedef struct Graph {
                     int numVertices;
                     Node** adjacencyList;
                 } Graph;
                 
-                // Function to create a new graph with 'numVertices' vertices
+                
                 Graph* createGraph(int numVertices) {
                     Graph* graph = (Graph*)malloc(sizeof(Graph));
                     graph-&gt;numVertices = numVertices;
@@ -34,21 +34,21 @@
                     return graph;
                 }
                 
-                // Function to add an edge between two vertices
+                
                 void addEdge(Graph* graph, int source, int destination) {
                     Node* newNode = (Node*)malloc(sizeof(Node));
                     newNode-&gt;data = destination;
                     newNode-&gt;next = graph-&gt;adjacencyList[source];
                     graph-&gt;adjacencyList[source] = newNode;
                 
-                    // For undirected graph, you should also add the reverse edge
+                    
                     newNode = (Node*)malloc(sizeof(Node));
                     newNode-&gt;data = source;
                     newNode-&gt;next = graph-&gt;adjacencyList[destination];
                     graph-&gt;adjacencyList[destination] = newNode;
                 }
                 
-                // Function to perform Breadth-First Search
+            
                 void bfs(Graph* graph, int startVertex) {
                     int* visited = (int*)malloc(graph-&gt;numVertices * sizeof(int));
                     for (int i = 0; i &lt; graph-&gt;numVertices; i++) {
