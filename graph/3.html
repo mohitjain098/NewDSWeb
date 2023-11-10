@@ -13,7 +13,6 @@
                 
                 #define MAX_VERTICES 100
                 
-                // Define the adjacency matrix
                 int adjacencyMatrix[MAX_VERTICES][MAX_VERTICES];
                 bool visited[MAX_VERTICES];
                 int numVertices;
@@ -28,12 +27,12 @@
                     }
                 }
                 
-                // Function to add an edge to the adjacency matrix
+                
                 void addEdge(int start, int end) {
                     adjacencyMatrix[start][end] = 1;
                 }
                 
-                // Depth-First Search function
+               
                 void dfs(int vertex) {
                     visited[vertex] = true;
                     printf("Visited vertex: %d\n", vertex);
