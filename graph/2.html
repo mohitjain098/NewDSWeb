@@ -11,19 +11,19 @@
             #include &lt;stdio.h&gt;
                 #include &lt;stdlib.h&gt;
                 
-                // Structure for a node in the adjacency list
+                
                 typedef struct Node {
                     int data;
                     struct Node* next;
                 } Node;
                 
-                // Structure for the graph
+                
                 typedef struct Graph {
                     int numVertices;
                     Node** adjacencyList;
                 } Graph;
                 
-                // Function to create a new node
+                
                 Node* createNode(int value) {
                     Node* newNode = (Node*)malloc(sizeof(Node));
                     newNode-&gt;data = value;
@@ -31,7 +31,7 @@
                     return newNode;
                 }
                 
-                // Function to create a new graph with a given number of vertices
+                
                 Graph* createGraph(int vertices) {
                     Graph* graph = (Graph*)malloc(sizeof(Graph));
                     graph-&gt;numVertices = vertices;
@@ -42,19 +42,19 @@
                     return graph;
                 }
                 
-                // Function to add an edge between two vertices
+            
                 void addEdge(Graph* graph, int source, int destination) {
                     Node* newNode = createNode(destination);
                     newNode-&gt;next = graph-&gt;adjacencyList[source];
                     graph-&gt;adjacencyList[source] = newNode;
                 
-                    // For undirected graph, you might want to add the reverse edge as well.
+                    
                     newNode = createNode(source);
                     newNode-&gt;next = graph-&gt;adjacencyList[destination];
                     graph-&gt;adjacencyList[destination] = newNode;
                 }
                 
-                // Function to print the adjacency list
+                
                 void printGraph(Graph* graph) {
                     for (int i = 0; i &lt; graph-&gt;numVertices; i++) {
                         Node* currentNode = graph-&gt;adjacencyList[i];
@@ -67,7 +67,7 @@
                     }
                 }
                 
-                // Function to delete an edge between two vertices
+                
                 void deleteEdge(Graph* graph, int source, int destination) {
                     Node* currentNode = graph-&gt;adjacencyList[source];
                     Node* prevNode = NULL;
@@ -90,7 +90,7 @@
                 
                     free(currentNode);
                 
-                    // For undirected graph, you might want to delete the reverse edge as well.
+                    
                     currentNode = graph-&gt;adjacencyList[destination];
                     prevNode = NULL;
                 
