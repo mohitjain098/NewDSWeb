@@ -16,7 +16,7 @@
             
                     int adjMatrix[n][n];
             
-                    // Initialize the adjacency matrix with 0s.
+                    
                     for(i = 0; i &lt; n; i++) {
                         for(j = 0; j &lt; n; j++) {
                             adjMatrix[i][j] = 0;
@@ -26,22 +26,22 @@
                     printf("Enter the number of edges:\n");
                     scanf("%d", &e);
             
-                    // Read edges and update the adjacency matrix.
+                    
                     for(i = 0; i &lt; e; i++) {
                         printf("Enter edge (format: vertex1 vertex2):\n");
                         scanf("%d %d", &vertex1, &vertex2);
             
-                        // Check for valid vertices and update the matrix.
+                        
                         if(vertex1 &gt;= 0 && vertex1 &lt; n && vertex2 &gt;= 0 && vertex2 &lt; n) {
                             adjMatrix[vertex1][vertex2] = 1;
-                            adjMatrix[vertex2][vertex1] = 1; // For undirected graph. Remove this for directed graph.
+                            adjMatrix[vertex2][vertex1] = 1; 
                         } else {
                             printf("Invalid vertices. Please enter vertices between 0 to %d\n", n - 1);
-                            i--; // to ensure the correct number of edges are inputted.
+                            i--; 
                         }
                     }
             
-                    // Print the adjacency matrix.
+                
                     printf("Adjacency Matrix:\n");
                     for(i = 0; i &lt; n; i++) {
                         for(j = 0; j &lt; n; j++) {
